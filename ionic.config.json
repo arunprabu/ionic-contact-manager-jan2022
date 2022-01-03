@@ -1,0 +1,7 @@
+{
+  "name": "ionic-contact-manager-jan2022",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
