@@ -6,7 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 
-
+// Feature Module -- individual main switching box
 @NgModule({
   imports: [
     CommonModule,
