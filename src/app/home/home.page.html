@@ -5,10 +5,51 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card color="primary">
+
+  <ion-slides>
+    <ion-slide>
+      <div class="slide">
+        <img src="https://via.placeholder.com/150/771796" alt="" />
+        <h2>Welcome</h2>
+        <p>
+          The <b>ionic contact manager app</b> is a practical preview of the ionic framework in action, and a
+          demonstration of proper code use.
+        </p>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="https://via.placeholder.com/150/771796" alt=""/>
+      <h2>What is Ionic?</h2>
+      <p>
+        <b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps
+        with web technologies like HTML, CSS, and JavaScript.
+      </p>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="https://via.placeholder.com/150/771796" alt=""/>
+      <h2>What is Appflow?</h2>
+      <p>
+        <b>Appflow</b> is a powerful set of services and features built on top of Ionic Framework that brings a
+        totally new level of app development agility to mobile dev teams.
+      </p>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="https://via.placeholder.com/150/771796" alt=""/>
+      <h2>Browse Contacts</h2>
+      <ion-button fill="clear">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+    </ion-slide>
+  </ion-slides>
+
+  <!-- <ion-card color="primary">
     <ion-card-header>
       <ion-card-subtitle>Welcome to</ion-card-subtitle>
-      <ion-card-title>Contact Manager App!</ion-card-title>
+      <ion-card-title>
+        <ion-icon name="logo-wechat"></ion-icon>
+        Contact Manager App!
+      </ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
@@ -16,6 +57,6 @@
       <br><br>
       <ion-button color="warning">Get Started!</ion-button>
     </ion-card-content>
-  </ion-card>
-
+  </ion-card> -->
+  
 </ion-content>
