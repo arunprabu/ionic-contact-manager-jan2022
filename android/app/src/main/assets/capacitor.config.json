@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "ionic-contact-manager-jan2022",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

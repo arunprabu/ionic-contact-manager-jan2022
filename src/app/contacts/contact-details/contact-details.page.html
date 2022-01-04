@@ -32,8 +32,10 @@
         </ion-item>
       </ion-list>
 
-      <ion-button expand="block" color="primary"  id="update-modal-trigger">Update</ion-button>
-      <ion-modal trigger="update-modal-trigger">
+      <ion-button expand="block" color="primary" 
+      id="update-modal-trigger" (click)="handleUpdateModalOpen()">Update</ion-button>
+
+      <!-- <ion-modal trigger="update-modal-trigger">
         <ng-template>
           <ion-content>
             <ion-header translucent>
@@ -46,11 +48,11 @@
             </ion-header>
           </ion-content>
         </ng-template>
-      </ion-modal>
+      </ion-modal> -->
 
 
       <ion-button expand="block" color="danger" 
-      fill="outline" (click)="handleDeleteContact()">Delete</ion-button>
+      fill="outline" (click)="handleDeleteContact()" class="ion-margin-top">Delete</ion-button>
 
      
     </ion-card-content>
