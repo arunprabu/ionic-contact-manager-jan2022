@@ -2,26 +2,27 @@ For saving contact
 ---
   npm i @capacitor-community/contacts 
 
-  ionic build 
+  1. get prod ready web project
+    ionic build 
 
-  if you target android
+    if you target android
 
-    npm install @capacitor/android
-    npx cap add android 
+      npm install @capacitor/android
+      npx cap add android 
 
-    Then, check  the AndroidManifest.xml file for the following lines
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
-    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+      Then, check  the AndroidManifest.xml file for the following lines
+      <uses-permission android:name="android.permission.READ_CONTACTS"/>
+      <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
 
-    npx cap open android
+      npx cap open android
 
     
 
-  if you target ios 
-    npm install @capacitor/ios
-    npx cap add ios 
+      if you target ios 
+        npm install @capacitor/ios
+        npx cap add ios 
 
-    Then fix the errors and finish it off
+        Then fix the errors and finish it off
 
     
 

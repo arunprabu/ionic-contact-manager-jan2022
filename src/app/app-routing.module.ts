@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'contacts',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
