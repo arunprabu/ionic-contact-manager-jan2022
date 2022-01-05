@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Contact, Contacts, NewContact} from '@capacitor-community/contacts';
+import { FormControl } from '@angular/forms';
+//import {Contact, Contacts, NewContact} from '@capacitor-community/contacts';
 import { ToastController } from '@ionic/angular';
+import { ContactService } from '../contact.service';
 
 @Component({
   selector: 'app-add-contact',
@@ -9,23 +11,72 @@ import { ToastController } from '@ionic/angular';
 })
 export class AddContactPage implements OnInit {
 
-  constructor(private toastController: ToastController) { }
+  name = new FormControl('');
+  email = new FormControl('');
+  phone = new FormControl('');
+
+  constructor(private contactService: ContactService,
+    private toastController: ToastController) {
+
+  }
 
   ngOnInit() {
   }
 
-  async saveContact(){
-    const newContact: NewContact = {
-      givenName: 'Arthur',
-      familyName: 'Dent'
+  async handleContactCreate(){
+    const contactData = {
+      name: this.name.value,
+      email: this.email.value,
+      phone: this.phone.value
     };
 
-    Contacts.saveContact(newContact);
+    console.log(contactData); // submittable form data
+
     const toast = await this.toastController.create({
-      message: `${newContact.givenName} saved`,
-      duration: 2000
+      message: 'Contact added succesfully!',
+      duration: 2000,
+      position: 'middle',
+      color: 'success'
     });
-    toast.present();
+
+    this.contactService.createContact(contactData)
+      .subscribe( (res: any) => {
+        console.log(res);
+        if(res && res.id ){
+          toast.present();
+        }
+      });
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // async saveContact(){
+  //   const newContact: NewContact = {
+  //     givenName: 'Arthur',
+  //     familyName: 'Dent'
+  //   };
+
+  //   Contacts.saveContact(newContact);
+  //   const toast = await this.toastController.create({
+  //     message: `${newContact.givenName} saved`,
+  //     duration: 2000
+  //   });
+  //   toast.present();
+  // }
 
 }

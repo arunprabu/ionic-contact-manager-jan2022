@@ -7,7 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { ContactsPageRoutingModule } from './contacts-routing.module';
 
 import { ContactsPage } from './contacts.page';
-import { UpdateContactModalComponent } from './contact-details/update-contact-modal/update-contact-modal.component';
+import { EditContactModalComponent } from './contact-details/edit-contact-modal/edit-contact-modal.component';
+//import { UpdateContactModalComponent } from './contact-details/update-contact-modal/update-contact-modal.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { UpdateContactModalComponent } from './contact-details/update-contact-mo
     ReactiveFormsModule,
     ContactsPageRoutingModule
   ],
-  declarations: [ContactsPage, UpdateContactModalComponent]
+  declarations: [ContactsPage, EditContactModalComponent ]
 })
 export class ContactsPageModule {}

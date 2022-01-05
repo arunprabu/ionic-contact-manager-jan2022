@@ -18,7 +18,12 @@ For saving contact
     
 
   if you target ios 
+    npm install @capacitor/ios
     npx cap add ios 
+
+    Then fix the errors and finish it off
+
+    
 
 
   
