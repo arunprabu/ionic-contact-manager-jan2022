@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AlertController, ModalController } from '@ionic/angular';
+import { ContactService } from '../contact.service';
 import { EditContactModalComponent } from './edit-contact-modal/edit-contact-modal.component';
 // import { UpdateContactModalComponent } from './update-contact-modal/update-contact-modal.component';
 //import { Contacts } from '@capacitor-community/contacts';
@@ -11,12 +13,34 @@ import { EditContactModalComponent } from './edit-contact-modal/edit-contact-mod
 })
 export class ContactDetailsPage implements OnInit {
 
+  contactData: any;
+
   // dataFromModal: any;
   constructor( private alertController: AlertController,
-    private modalController: ModalController) { }
+    private modalController: ModalController,
+    private activatedRoute: ActivatedRoute,
+    private contactService: ContactService) { }
 
   ngOnInit() {
+    console.log('inside ngOnInit');
+    // read url param
+    const contactId = this.activatedRoute.snapshot.paramMap.get('contactId');
+    console.log(contactId);
+
+    this.contactService.getContactById(contactId)
+      .subscribe( (res: any) =>{
+        console.log(res);
+        this.contactData = res;
+      });
   }
+
+
+
+
+
+
+
+
 
   async handleDeleteContact() {
     const alert = await this.alertController.create({

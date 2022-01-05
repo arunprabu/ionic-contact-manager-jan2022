@@ -7,16 +7,35 @@ import { map } from 'rxjs/operators';
 })
 export class ContactService {
 
-  constructor( private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  createContact( contactFormData){
+  createContact(contactFormData) {
     console.log(contactFormData);
 
     return this.http.post('https://jsonplaceholder.typicode.com/users', contactFormData)
-      .pipe(map( (res: any) => {
+      .pipe(map((res: any) => {
         console.log(res);
         return res;
       }));
 
   }
+
+  getContacts() {
+    return this.http.get('https://jsonplaceholder.typicode.com/users')
+      .pipe(map((res: any) => {
+        console.log(res);
+        return res;
+      }));
+  }
+
+  getContactById( contactId){
+    console.log(contactId);
+
+    return this.http.get(`https://jsonplaceholder.typicode.com/users/${contactId}`)
+      .pipe(map((res: any) => {
+        console.log(res);
+        return res;
+      }));
+  }
 }
+

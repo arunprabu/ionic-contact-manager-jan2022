@@ -12,11 +12,13 @@
   </ion-fab>
 
   <ion-list>
-    <ion-item detail routerLink="/contacts/1">
+    <ion-item detail *ngFor="let contact of contactList" 
+      routerLink="/contacts/{{contact.id}}">
       <ion-avatar slot="start">
-        <ion-img src="https://via.placeholder.com/32/77179" alt="profile photo"></ion-img>
+        <ion-img src="https://via.placeholder.com/32/77179" 
+          alt="profile photo of {{contact.name}}"></ion-img>
       </ion-avatar>
-      <ion-label>Pokémon Yellow</ion-label>
+      <ion-label>{{contact.name}}</ion-label>
     </ion-item>
   </ion-list>
 </ion-content>

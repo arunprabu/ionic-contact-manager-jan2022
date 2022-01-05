@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Contact Details</ion-title>
+    <ion-title>{{contactData?.name}}</ion-title>
     <ion-buttons slot="end">
       <ion-button>
         <ion-icon name="share-social"></ion-icon>
@@ -13,22 +13,22 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-card *ngIf="contactData">
     <img src="https://via.placeholder.com/400/FFFF00/000000" width="400" alt="profile photo">
     <ion-card-header>
-      <ion-card-subtitle>#1</ion-card-subtitle>
-      <ion-card-title>Steve Smith</ion-card-title>
+      <ion-card-subtitle>#{{contactData.id}}</ion-card-subtitle>
+      <ion-card-title>{{contactData.name}}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
       <ion-list>
         <ion-item>
           <ion-icon name="call"></ion-icon>
-          <ion-label>23443123412</ion-label>
+          <ion-label>{{contactData.phone}}</ion-label>
         </ion-item>
         <ion-item>
           <ion-icon name="mail"></ion-icon>
-          <ion-label>a@b.com</ion-label>
+          <ion-label>{{contactData.email}}</ion-label>
         </ion-item>
       </ion-list>
 
