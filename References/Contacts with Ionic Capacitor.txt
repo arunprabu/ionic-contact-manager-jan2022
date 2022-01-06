@@ -10,6 +10,11 @@ For saving contact
       npm install @capacitor/android
       npx cap add android 
 
+      if we have anroid app built 
+        try sync'ing 
+        npx cap sync 
+
+
       Then, check  the AndroidManifest.xml file for the following lines
       <uses-permission android:name="android.permission.READ_CONTACTS"/>
       <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
@@ -38,6 +43,10 @@ For saving contact
       npx cap run ios
 
       Then fix the errors and finish it off
+
+      To download xcode -- hit app store 
+      or else download xcode.xip file and extract 
+          then learn about setting it up 
 
 ---
 

@@ -24,7 +24,7 @@ export class AddContactPage implements OnInit {
   ngOnInit() {
   }
 
-  async handleContactCreate(){
+  async handleContactCreate() {
     const contactData = {
       name: this.name.value,
       email: this.email.value,
@@ -34,10 +34,36 @@ export class AddContactPage implements OnInit {
     console.log(contactData); // submittable form data
 
     this.contactService.createContact(contactData)
-      .subscribe( (res: any) => {
+      .subscribe((res: any) => {
         console.log(res);
-        if(res && res.id ){
-          //this.saveContact(res);
+
+        const contactDataToBeSaved = {
+          givenName: res.name,
+          phoneNumbers: [{ label: 'Official', number: res.phone }]
+        };
+
+        if (res && res.id) {
+          Contacts.saveContact(contactDataToBeSaved)
+            .then(async (result: any) => {
+              console.log(result);
+              const toast = await this.toastController.create({
+                message: `${result.givenName} saved`,
+                duration: 2000,
+                position: 'middle',
+                color: 'success'
+              });
+              toast.present();
+            })
+            .catch(async (err) => {
+              console.log(err);
+              const toast = await this.toastController.create({
+                message: err,
+                duration: 2000,
+                position: 'middle',
+                color: 'danger'
+              });
+              toast.present();
+            });
         }
       });
   }
