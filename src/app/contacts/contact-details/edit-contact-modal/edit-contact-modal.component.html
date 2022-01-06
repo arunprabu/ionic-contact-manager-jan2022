@@ -10,18 +10,19 @@
   <ion-list>
     <ion-item>
       <ion-label position="floating">Enter Name</ion-label>
-      <ion-input></ion-input>
+      <ion-input [formControl]="nameInput"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Enter Email</ion-label>
-      <ion-input type="email"></ion-input>
+      <ion-input type="email" [formControl]="emailInput"></ion-input>
     </ion-item>
    
     <ion-item>
       <ion-label position="floating">Enter Phone</ion-label>
-      <ion-input></ion-input>
+      <ion-input [formControl]="phoneInput"></ion-input>
     </ion-item>
   </ion-list>
-  <ion-button expand="full" class="ion-margin-top">Update</ion-button>
+  <ion-button expand="full" class="ion-margin-top" 
+  (click)="handleUpdateContact()">Update</ion-button>
 </ion-content>

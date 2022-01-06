@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Contacts, NewContact } from '@capacitor-community/contacts';
 //import {Contact, Contacts, NewContact} from '@capacitor-community/contacts';
 import { ToastController } from '@ionic/angular';
 import { ContactService } from '../contact.service';
@@ -32,51 +33,42 @@ export class AddContactPage implements OnInit {
 
     console.log(contactData); // submittable form data
 
-    const toast = await this.toastController.create({
-      message: 'Contact added succesfully!',
-      duration: 2000,
-      position: 'middle',
-      color: 'success'
-    });
-
     this.contactService.createContact(contactData)
       .subscribe( (res: any) => {
         console.log(res);
         if(res && res.id ){
-          toast.present();
+          //this.saveContact(res);
         }
       });
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // async saveContact(){
+  // saveContact(res){
   //   const newContact: NewContact = {
-  //     givenName: 'Arthur',
-  //     familyName: 'Dent'
+  //     givenName: res.name,
+  //     familyName: ''
   //   };
 
-  //   Contacts.saveContact(newContact);
-  //   const toast = await this.toastController.create({
-  //     message: `${newContact.givenName} saved`,
-  //     duration: 2000
-  //   });
-  //   toast.present();
+  //   Contacts.saveContact(newContact)
+  //     .then( async (status) => {
+  //       console.log(status);
+  //       const toast = await this.toastController.create({
+  //         message: `${newContact.givenName} saved`,
+  //         duration: 2000,
+  //         position: 'middle',
+  //         color: 'success'
+  //       });
+  //       toast.present();
+  //     })
+  //     .catch(async (err)=>{
+  //       console.log(err);
+  //       const toast = await this.toastController.create({
+  //         message: err,
+  //         duration: 2000,
+  //         position: 'middle',
+  //         color: 'danger'
+  //       });
+  //       toast.present();
+  //     });
   // }
 
 }

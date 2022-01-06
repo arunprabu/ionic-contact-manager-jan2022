@@ -34,14 +34,6 @@ export class ContactDetailsPage implements OnInit {
       });
   }
 
-
-
-
-
-
-
-
-
   async handleDeleteContact() {
     const alert = await this.alertController.create({
       header: 'Are you sure?',
@@ -71,18 +63,15 @@ export class ContactDetailsPage implements OnInit {
   async handleUpdateModalOpen() {
     const modal = await this.modalController.create({
       component: EditContactModalComponent,
-      cssClass: 'my-custom-class'
+      componentProps: {
+        id: this.contactData.id,
+        name: this.contactData.name,
+        phone: this.contactData.phone,
+        email: this.contactData.email
+      },
+      cssClass: 'my-custom-class',
     });
     return await modal.present();
-
-
-
-
-
-
-
-
-
 
     // const modal = await this.modalController.create({
     //   component: UpdateContactModalComponent,

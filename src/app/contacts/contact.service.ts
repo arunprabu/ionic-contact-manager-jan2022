@@ -37,5 +37,15 @@ export class ContactService {
         return res;
       }));
   }
+
+  updateContact(contactFormData) {
+    console.log(contactFormData);
+    return this.http.put(`https://jsonplaceholder.typicode.com/users/${contactFormData.id}`, contactFormData)
+      .pipe(map((res: any) => {
+        console.log(res);
+        return res;
+      }));
+  }
+
 }
 

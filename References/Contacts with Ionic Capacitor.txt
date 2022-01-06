@@ -15,16 +15,31 @@ For saving contact
       <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
 
       npx cap open android
+      
+      And then, check the app in emulator
 
-    
+      Finally if you want to get the APK,
+      in Android Studio IDE 
+        Build > Bundle Build / APK > Build APK 
+      Then, get the apk. 
+      install it in android mobile and check the app. 
 
-      if you target ios 
-        npm install @capacitor/ios
-        npx cap add ios 
+-----------------
 
-        Then fix the errors and finish it off
+    Reference for ios
+    ---
+    https://capacitorjs.com/docs/ios#adding-the-ios-platform
 
-    
+    if you target ios 
+      npm install @capacitor/ios
+      npx cap add ios 
+
+      npx cap open ios
+      npx cap run ios
+
+      Then fix the errors and finish it off
+
+---
 
 
-  
+

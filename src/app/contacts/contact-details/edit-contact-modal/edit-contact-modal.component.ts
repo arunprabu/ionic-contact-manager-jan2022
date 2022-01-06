@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
+import { ContactService } from '../../contact.service';
 
 @Component({
   selector: 'app-edit-contact-modal',
@@ -8,12 +10,51 @@ import { ModalController } from '@ionic/angular';
 })
 export class EditContactModalComponent implements OnInit {
 
-  constructor(private modalController: ModalController) { }
+  // creating custom property
+  @Input() id: number;
+  @Input() name: string; // we are going to make the variable as custom prop
+  @Input() email: string;
+  @Input() phone: string;
 
-  ngOnInit() {}
+  // reactive form
+  nameInput: FormControl;
+  emailInput: FormControl;
+  phoneInput: FormControl;
 
-  dismissModal(){
+  constructor(private modalController: ModalController,
+    private contactService: ContactService) {
+  }
+
+  ngOnInit() {
+    // receiving data from parent comp
+    console.log(this.name);
+
+    this.nameInput = new FormControl(this.name);
+    this.emailInput = new FormControl(this.email);
+    this.phoneInput = new FormControl(this.phone);
+  }
+
+  dismissModal() {
     this.modalController.dismiss();
+  }
+
+  handleUpdateContact() {
+    console.log(this.nameInput.value);
+    console.log(this.emailInput.value);
+    console.log(this.phoneInput.value);
+
+    const contactFormData = {
+      id: this.id,
+      name: this.nameInput.value,
+      phone: this.phoneInput.value,
+      email:this.emailInput.value
+    };
+
+    this.contactService.updateContact(contactFormData)
+      .subscribe( (res: any)=>{
+        console.log(res);
+      });
+
   }
 
 }
